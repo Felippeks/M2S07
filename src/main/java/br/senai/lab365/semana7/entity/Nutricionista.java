@@ -6,6 +6,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+import java.util.List;
+
 @Entity
 @Table(name = "Nutricionista")
 public class Nutricionista {
@@ -15,16 +17,22 @@ public class Nutricionista {
     private Long id;
     private String crn;
     private String especialidade;
+    private String nome;
+    private int yearsOfExperience;
+    private List<String> certifications;
 
     // Empty constructor
     public Nutricionista() {
     }
 
     // All-args constructor
-    public Nutricionista(Long id, String crn, String especialidade) {
+    public Nutricionista(Long id, String crn, String especialidade, String nome, int yearsOfExperience, List<String> certifications) {
         this.id = id;
         this.crn = crn;
         this.especialidade = especialidade;
+        this.nome = nome;
+        this.yearsOfExperience = yearsOfExperience;
+        this.certifications = certifications;
     }
 
     // Getters and setters
@@ -50,5 +58,29 @@ public class Nutricionista {
 
     public void setEspecialidade(String especialidade) {
         this.especialidade = especialidade;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getYearsOfExperience() {
+        return yearsOfExperience;
+    }
+
+    public void setYearsOfExperience(int yearsOfExperience) {
+        this.yearsOfExperience = yearsOfExperience;
+    }
+
+    public List<String> getCertifications() {
+        return certifications;
+    }
+
+    public void setCertifications(List<String> certifications) {
+
     }
 }

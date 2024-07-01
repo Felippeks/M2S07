@@ -1,5 +1,7 @@
 package br.senai.lab365.semana7.controller.dto;
 
+import br.senai.lab365.semana7.entity.Endereco;
+
 public class EnderecoRequestDTO {
     private String logradouro;
     private String estado;
@@ -56,5 +58,15 @@ public class EnderecoRequestDTO {
 
     public void setCep(String cep) {
         this.cep = cep;
+    }
+
+    public Endereco toEntity() {
+        Endereco endereco = new Endereco();
+        endereco.setLogradouro(this.logradouro);
+        endereco.setEstado(this.estado);
+        endereco.setCidade(this.cidade);
+        endereco.setNumero(this.numero);
+        endereco.setCep(this.cep);
+        return endereco;
     }
 }

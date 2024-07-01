@@ -1,5 +1,7 @@
 package br.senai.lab365.semana7.controller.dto;
 
+import br.senai.lab365.semana7.entity.Paciente;
+
 import java.util.Date;
 
 public class PacienteRequestDTO {
@@ -68,5 +70,18 @@ public class PacienteRequestDTO {
 
     public void setEndereco(EnderecoRequestDTO endereco) {
         this.endereco = endereco;
+    }
+
+    public Paciente toEntity() {
+        Paciente paciente = new Paciente();
+        paciente.setNome(this.nome);
+        paciente.setDataDeNascimento(this.dataDeNascimento);
+        paciente.setCpf(this.cpf);
+        paciente.setTelefone(this.telefone);
+        paciente.setEmail(this.email);
+        if (this.endereco != null) {
+            paciente.setEndereco(this.endereco.toEntity());
+        }
+        return paciente;
     }
 }

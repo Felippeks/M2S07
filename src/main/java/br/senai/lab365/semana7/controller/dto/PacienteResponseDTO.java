@@ -1,5 +1,7 @@
 package br.senai.lab365.semana7.controller.dto;
 
+import br.senai.lab365.semana7.entity.Paciente;
+
 public class PacienteResponseDTO {
     private Long id;
     private String nome;
@@ -18,6 +20,9 @@ public class PacienteResponseDTO {
         this.email = email;
         this.telefone = telefone;
         this.endereco = endereco;
+    }
+
+    public PacienteResponseDTO(Paciente paciente) {
     }
 
     public Long getId() {
@@ -67,4 +72,5 @@ public class PacienteResponseDTO {
     public void setEndereco(EnderecoResponseDTO endereco) {
         this.endereco = endereco;
     }
+
 }

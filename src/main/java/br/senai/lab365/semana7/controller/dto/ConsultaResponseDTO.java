@@ -20,6 +20,9 @@ public class ConsultaResponseDTO {
         this.paciente = paciente;
     }
 
+    public ConsultaResponseDTO(Long id, Date dataDaConsulta, String observacoes, NutricionistaResponseDTO nutricionistaResponseDTO, PacienteResponseDTO pacienteResponseDTO) {
+    }
+
     public long getId() {
         return id;
     }

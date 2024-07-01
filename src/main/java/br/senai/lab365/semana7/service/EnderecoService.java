@@ -1,3 +1,5 @@
+package br.senai.lab365.semana7.service;
+
 import br.senai.lab365.semana7.entity.Endereco;
 import br.senai.lab365.semana7.repository.EnderecoRepository;
 import org.springframework.beans.factory.annotation.Autowired;

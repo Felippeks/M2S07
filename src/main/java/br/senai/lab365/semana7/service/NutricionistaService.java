@@ -1,3 +1,5 @@
+package br.senai.lab365.semana7.service;
+
 import br.senai.lab365.semana7.entity.Nutricionista;
 import br.senai.lab365.semana7.repository.NutricionistaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,9 @@ public class NutricionistaService {
     private NutricionistaRepository nutricionistaRepository;
 
     public Nutricionista createNutricionista(Nutricionista nutricionista) {
+        if(nutricionistaRepository.findByName(nutricionista.getNome()).isPresent()) {
+            throw new RuntimeException("Nutricionista com o mesmo nome já existe");
+        }
         return nutricionistaRepository.save(nutricionista);
     }
 
@@ -30,6 +35,19 @@ public class NutricionistaService {
     public Nutricionista getNutricionistaById(Long id) {
         return nutricionistaRepository.findById(id).orElse(null);
     }
+
+    public Nutricionista addYearToExperience(Long id) {
+        Nutricionista nutricionista = nutricionistaRepository.findById(id).orElseThrow(() -> new RuntimeException("Nutricionista não encontrado"));
+        nutricionista.setEspecialidade(String.valueOf(nutricionista.getYearsOfExperience() + 1));
+        return nutricionistaRepository.save(nutricionista);
+    }
+
+    public Nutricionista addCertification(Long id, String certification) {
+        Nutricionista nutricionista = nutricionistaRepository.findById(id).orElseThrow(() -> new RuntimeException("Nutricionista não encontrado"));
+        nutricionista.getCertifications().add(certification);
+        return nutricionistaRepository.save(nutricionista);
+    }
+
     public NutricionistaService(NutricionistaRepository nutricionistaRepository) {
         this.nutricionistaRepository = nutricionistaRepository;
     }
