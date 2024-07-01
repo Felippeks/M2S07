@@ -9,7 +9,7 @@ import jakarta.persistence.Table;
 import java.util.List;
 
 @Entity
-@Table(name = "Nutricionista")
+@Table(name = "nutricionista")
 public class Nutricionista {
 
     @Id

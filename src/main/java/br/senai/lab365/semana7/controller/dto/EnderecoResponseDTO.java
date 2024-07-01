@@ -1,5 +1,7 @@
 package br.senai.lab365.semana7.controller.dto;
 
+import br.senai.lab365.semana7.entity.Endereco;
+
 public class EnderecoResponseDTO {
     private Long id;
     private String logradouro;
@@ -18,6 +20,14 @@ public class EnderecoResponseDTO {
         this.cidade = cidade;
         this.numero = numero;
         this.cep = cep;
+    }
+    public EnderecoResponseDTO(Endereco endereco) {
+        this.id = endereco.getId();
+        this.logradouro = endereco.getLogradouro();
+        this.estado = endereco.getEstado();
+        this.cidade = endereco.getCidade();
+        this.numero = endereco.getNumero();
+        this.cep = endereco.getCep();
     }
 
     public Long getId() {

@@ -11,7 +11,7 @@ import jakarta.persistence.ManyToOne;
 import java.util.Date;
 
 @Entity
-@Table(name = "Paciente")
+@Table(name = "paciente")
 public class Paciente {
 
     @Id

@@ -14,7 +14,7 @@ public class NutricionistaService {
     private NutricionistaRepository nutricionistaRepository;
 
     public Nutricionista createNutricionista(Nutricionista nutricionista) {
-        if(nutricionistaRepository.findByName(nutricionista.getNome()).isPresent()) {
+        if(nutricionistaRepository.findByNome(nutricionista.getNome()).isPresent()) {
             throw new RuntimeException("Nutricionista com o mesmo nome já existe");
         }
         return nutricionistaRepository.save(nutricionista);
